@@ -1,9 +1,12 @@
 import Rx from 'rx';
-import {emailValidation} from '../../helpers/field-validations';
+import {emailValidation, passwordValidation} from '../../helpers/field-validations';
 
 const model = (actions, firebaseRef) => {
   const email$ = actions.email$.map(e => { return e.target.value }).startWith('');
   const emailValidation$ = email$.map(emailValidation);
+
+  const password1$ = actions.password1$.map(e => { return e.target.value }).startWith('');
+  const password1Validation$ = password1$.map(passwordValidation);
 
   const submit$ = actions.submitClick$
     .map(() => {
@@ -28,6 +31,8 @@ const model = (actions, firebaseRef) => {
   return {
     email$,
     emailValidation$,
+    password1$,
+    password1Validation$,
     submit$
   }
 }

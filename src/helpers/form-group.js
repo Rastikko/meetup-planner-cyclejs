@@ -6,8 +6,6 @@ function formGroup(id, labelText, inputType, inputValue, validationErrors) {
   validationErrors.forEach((value) => {
     validationErrorsDOM.push(div('.text-right .bg-danger', [value]));
   });
-  console.log('errorClass', errorClass);
-  console.log('validationErrorsLabels', validationErrorsDOM)
 
   return div('.form-group', {className: errorClass}, [
     label({for: id}, ['Email address']),
