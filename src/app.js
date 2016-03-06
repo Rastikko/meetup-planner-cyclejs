@@ -1,7 +1,7 @@
-import Cycle                from '@cycle/core';
-import {makeDOMDriver}      from '@cycle/dom';
-import Rx                   from 'rx';
-import Main                 from './main'
+import Cycle from '@cycle/core';
+import {makeDOMDriver} from '@cycle/dom';
+import Rx from 'rx';
+import Main from './main'
 
 // we are pulling in our css files here for webpack to compile
 require("!style!css!styles/layout.css");
