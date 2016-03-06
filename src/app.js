@@ -5,11 +5,14 @@ import Main from './main'
 import {makeFirebaseDriver} from 'cycle-firebase'
 import Firebase from 'firebase'
 
-// we are pulling in our css files here for webpack to compile
-require("!style!css!styles/layout.css");
+import '!style!css!styles/layout.css';
 
-// creating our mainApp from /.main
+let firebaseRef = new Firebase('https://meetup-planner.firebaseio.com');
+
 function mainApp(sources) {
+  // naive implementation to have the reference to firebase and authenticate
+  // or create the user
+  sources.firebaseRef = firebaseRef;
   let sinks = Main(sources);
   return sinks
 }
@@ -20,7 +23,7 @@ function mainApp(sources) {
 // History is using our makeHistoryDriver to deal with routing
 const sources = {
   DOM: makeDOMDriver('#application'),
-  firebase: makeFirebaseDriver(new Firebase('https://meetup-planner.firebaseio.com')),
+  firebase: makeFirebaseDriver(firebaseRef),
 };
 
-Cycle.run(mainApp,sources);
+Cycle.run(mainApp, sources);
