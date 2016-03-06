@@ -29,16 +29,11 @@ function passwordValidation(password) {
   {
     re:  /[A-Z]/g,
     message: 'match an uppercase letter'
-  },
-  {
-    re: /[^A-z0-9\!\@\#\$\%\^\&\*]/g,
-    message: 'match a character that isn\'t allowed in this password'
   }];
   let errorArray = [];
 
   if (password === '') {
     errorArray.push('The password field cannot be empty');
-    console.log('EMPTY', errorArray);
     return errorArray;
   }
 
