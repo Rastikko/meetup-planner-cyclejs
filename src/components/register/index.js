@@ -5,7 +5,6 @@ import {Observable} from 'rx';
 
 const register = (sources) => {
   const actions$ = intent(sources);
-  console.log('actions', actions$);
   const state$ = model(actions$, sources.firebaseRef);
   const view$ = view(state$);
   return {

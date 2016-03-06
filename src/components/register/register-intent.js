@@ -5,6 +5,7 @@ const intent = (sources) => {
     const email$ = sources.DOM
       .select('#inputEmail')
       .events('input');
+
     const submitClick$ = sources.DOM
       .select('#registerBtn')
       .events('click');
