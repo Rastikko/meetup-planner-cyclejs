@@ -18,12 +18,15 @@ function registerAndLogin(firebaseRef, email, password) {
 
 const model = (actions, firebaseRef) => {
   const email$ = actions.email$.map(e => { return e.target.value }).startWith('');
-  const emailValidation$ = email$.map(emailValidation).startWith([]);
+  const emailErrors$ = email$.map(emailValidation).startWith([]);
 
   const password1$ = actions.password1$.map(e => { return e.target.value }).startWith('');
-  const password1Validation$ = password1$.map(passwordValidation).startWith([]);
+  const password1Errors$ = password1$.map(passwordValidation).startWith([]);
 
-  const submit$ = Observable.combineLatest(email$, emailValidation$, password1$, password1Validation$,
+  // const password2$ = actions.password2$.map(e => { return e.target.value }).startWith('');
+  // const password2Errors$ = password2$.sample(password1$).map();
+
+  const submit$ = Observable.combineLatest(email$, emailErrors$, password1$, password1Errors$,
       (email, emailErrors, password1, password1Errors) => {
         if (email && !emailErrors.length && password1 && !password1Errors.length) {
           return {email, password1};
@@ -38,9 +41,9 @@ const model = (actions, firebaseRef) => {
 
   return {
     email$,
-    emailValidation$,
+    emailErrors$,
     password1$,
-    password1Validation$,
+    password1Errors$,
     submit$
   }
 }

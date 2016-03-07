@@ -10,6 +10,10 @@ const intent = (sources) => {
       .select('#inputPassword')
       .events('input');
 
+    const password2$ = sources.DOM
+      .select('#inputPassword2')
+      .events('input');
+
     const submitClick$ = sources.DOM
       .select('#registerBtn')
       .events('click');

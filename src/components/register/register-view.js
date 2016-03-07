@@ -7,10 +7,7 @@ function retrieveForm(email, emailErrors, password1, password1Errors, submit) {
     h3('.text-center', 'Register'),
     formGroup('inputEmail', 'Email', 'email', email, emailErrors),
     formGroup('inputPassword', 'Password', 'password', password1, password1Errors),
-    div('.form-group', [
-      label({for: 'inputPassword'}, ['Password Again']),
-      input('#inputPassword', {className: 'form-control', type: 'password', placeholder: 'Password Again'})
-    ]),
+    formGroup('inputPassword2', 'Password Again', 'password', '', []),
     button('#registerBtn', {className: 'btn btn-default', type: 'submit'}, 'Register')
   ]);
 }
@@ -19,9 +16,9 @@ const view = (state) => {
   const sink = Observable
     .combineLatest(
       state.email$,
-      state.emailValidation$,
+      state.emailErrors$,
       state.password1$,
-      state.password1Validation$,
+      state.password1Errors$,
       state.submit$,
       (email, emailErrors, password1, password1Errors, submit) => {
         return retrieveForm(email, emailErrors, password1, password1Errors, submit);

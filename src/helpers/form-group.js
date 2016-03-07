@@ -8,7 +8,7 @@ function formGroup(id, labelText, inputType, inputValue, validationErrors) {
   });
 
   return div('.form-group', {className: errorClass}, [
-    label({for: id}, ['Email address']),
+    label({for: id}, [labelText]),
     input(`#${id}`, {className: 'form-control', type: inputType, placeholder: labelText, value: inputValue}),
     validationErrorsDOM,
   ]);
