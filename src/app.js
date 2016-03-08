@@ -5,8 +5,6 @@ import Main from './main'
 import {makeFirebaseDriver} from 'cycle-firebase'
 import Firebase from 'firebase'
 
-import '!style!css!styles/layout.css';
-
 let firebaseRef = new Firebase('https://meetup-planner.firebaseio.com');
 
 function mainApp(sources) {

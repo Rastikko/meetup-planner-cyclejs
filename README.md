@@ -8,3 +8,8 @@ To start the development environment:
 npm install
 npm run start
 ```
+To run the tests:
+
+```shell
+npm run test
+```
