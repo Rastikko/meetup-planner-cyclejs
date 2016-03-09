@@ -1,20 +1,27 @@
 import {expect} from 'chai';
 import {Observable} from 'rx'
 import {mockDOMSource} from '@cycle/dom';
-import registerIntent from '../src/components/register/register-intent'
+import main from '../src/main'
 
-describe('main', function() {
+describe('main.js', function() {
 
   describe('#main', function() {
-    // TODO
-    it('true should be true', function() {
-      const mockedDOM = mockDOMSource({
-        '#registerBtn': {
-          'click': Observable.fromArray([])
+    it('main should return a function', function() {
+      expect(main).to.be.a('function');
+    });
+
+    it('we should be able to run main with DOM and firebase placeholders', function() {
+      const mockedDOM = mockDOMSource();
+      const mockedFirebase = {
+        uid$: {
+          map: function() {
+            return {
+              map: function() {}
+            }
+          }
         }
-      });
-      const actions = registerIntent({DOM: mockedDOM});
-      expect(true).to.be.true;
+      };
+      main({DOM: mockedDOM, firebase: mockedFirebase});
     });
   });
 
