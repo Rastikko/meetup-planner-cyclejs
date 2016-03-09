@@ -13,7 +13,7 @@ const auth = (sources) => {
   const view$ = view(state$, Login.DOM, Register.DOM);
 
   return {
-    DOM: {view$}
+    DOM: view$
   }
 };
 
