@@ -7,7 +7,8 @@ const main = sources => {
   const view$ = Rx.Observable.just(Auth.DOM);
 
   return {
-    DOM: view$
+    DOM: view$,
+    firebase: Auth.firebase
   }
 
 };

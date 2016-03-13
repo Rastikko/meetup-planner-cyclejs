@@ -8,9 +8,6 @@ import Firebase from 'firebase'
 let firebaseRef = new Firebase('https://meetup-planner.firebaseio.com');
 
 function mainApp(sources) {
-  // naive implementation to have the reference to firebase and authenticate
-  // or create the user
-  sources.firebaseRef = firebaseRef;
   let sinks = Main(sources);
   return sinks
 }

@@ -12,8 +12,11 @@ const auth = (sources) => {
   const state$ = model(actions$, sources.firebaseRef);
   const view$ = view(state$, Login.DOM, Register.DOM);
 
+  console.log('Register', Register);
+
   return {
-    DOM: view$
+    DOM: view$,
+    firebase: Register.firebase
   }
 };
 

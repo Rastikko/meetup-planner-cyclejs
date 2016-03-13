@@ -1,4 +1,4 @@
-const model = (actions, firebaseRef) => {
+const model = (actions) => {
   return {
     isAuth$: actions.uid$.map(uid => {
       return !!uid;

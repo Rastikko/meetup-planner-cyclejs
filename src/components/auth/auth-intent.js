@@ -1,6 +1,6 @@
-const intent = (sources) => {
+const intent = ({firebase}) => {
 
-    const uid$ = sources.firebase.uid$;
+    const uid$ = firebase.get('$user');
 
     return {
       uid$

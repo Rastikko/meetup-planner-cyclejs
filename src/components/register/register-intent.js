@@ -21,6 +21,7 @@ const intent = (sources) => {
     return {
       email$,
       password1$,
+      password2$,
       submitClick$
     }
 }
