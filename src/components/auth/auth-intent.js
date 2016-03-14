@@ -1,9 +1,14 @@
-const intent = ({firebase}) => {
+const intent = (sources) => {
 
-    const uid$ = firebase.get('$user');
+    const uid$ = sources.firebase.get('$user');
+
+    const logoutClick$ = sources.DOM
+      .select('#logout')
+      .events('click')
 
     return {
-      uid$
+      uid$,
+      logoutClick$
     }
 }
 export default intent;

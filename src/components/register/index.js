@@ -8,7 +8,7 @@ const register = (sources) => {
   const state$ = model(actions$);
   const view$ = view(state$);
 
-  const registerFirebase$ = Observable.combineLatest(state$.submit$, (credentials) => {
+  const registerFirebase$ = state$.submit$.map(credentials => {
     console.log('registerFirebase credentials', credentials);
     return {
       $user: sources.firebase.$set({
@@ -23,7 +23,7 @@ const register = (sources) => {
   // We map state$.submit to register the userData
   return {
     DOM: view$,
-    firebase: registerFirebase$
+    registerFirebase$
   }
 };
 

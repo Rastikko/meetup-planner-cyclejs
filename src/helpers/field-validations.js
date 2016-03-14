@@ -5,7 +5,6 @@ function emailValidation(email) {
   let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   let errorArray = [];
   if (email === '') {
-    errorArray.push('The email field cannot be empty');
     return errorArray;
   }
   if (!re.test(email)) {
@@ -35,7 +34,6 @@ function passwordValidation(password) {
   let errorArray = [];
 
   if (password === '') {
-    errorArray.push('The password field cannot be empty');
     return errorArray;
   }
 
