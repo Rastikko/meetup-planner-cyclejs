@@ -21,12 +21,8 @@ const auth = (sources) => {
 
   return {
     DOM: view$,
-    firebase: Observable.merge(logout$, Register.registerFirebase$).map((logout, register) => {
-      console.log('logout', logout);
-      console.log('register', register);
-      if (!!logout) return logout;
-      if (!!register) return register;
-    })
+    firebase: Observable
+    .merge(logout$, Register.registerFirebase$, Login.loginFirebase$)
   }
 };
 
