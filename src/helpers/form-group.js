@@ -1,6 +1,14 @@
 import {div, input, label} from '@cycle/dom';
 
-function formGroup(id, labelText, inputType, inputValue, validationErrors) {
+function formGroup(properties) {
+  let id = properties.id;
+  let labelText = properties.labelText;
+  let placeholderText = properties.placeholderText;
+  let inputType = properties.inputType;
+  let inputValue = properties.inputValue;
+  let validationErrors = properties.validationErrors;
+  let afterDOM = properties.afterDOM;
+
   const errorClass = (validationErrors.length) ? 'has-error': '';
   let validationErrorsDOM = [];
   validationErrors.forEach((value) => {
@@ -8,9 +16,10 @@ function formGroup(id, labelText, inputType, inputValue, validationErrors) {
   });
 
   return div('.form-group', {className: errorClass}, [
-    label({for: id}, [labelText]),
-    input(`#${id}`, {className: 'form-control', type: inputType, placeholder: labelText, value: inputValue}),
+    label('.form-group-label', {attributes: {for: id}}, [labelText]),
+    input(`#${id}`, {className: 'form-control', type: inputType, placeholder: placeholderText, value: inputValue}),
     validationErrorsDOM,
+    afterDOM
   ]);
 }
 

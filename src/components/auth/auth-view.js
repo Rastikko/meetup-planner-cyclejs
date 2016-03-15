@@ -9,8 +9,8 @@ const view = (state, login, register) => {
       ]);
     }
     return div('#auth-container', {className: 'container'}, [
-      div('.col-md-6', [login]),
-      div('.col-md-6', [register])
+      div('.col-md-4 .col-md-offset-2', [login]),
+      div('.col-md-4', [register])
     ])
   })
 };

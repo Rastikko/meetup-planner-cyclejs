@@ -7,6 +7,7 @@ const model = (actions) => {
 
   const password1$ = actions.password1$.map(e => { return e.target.value }).share().startWith('');
   // we only should display password is empty error if the email is not empty
+  // TODO: find a more elegant solution to keep track of old states
   const password1Errors$ = Observable.merge(
     email$.map((email) => {return {email: email}}),
     password1$.map((password) => {return {password: password}}),

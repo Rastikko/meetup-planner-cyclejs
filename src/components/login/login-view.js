@@ -4,10 +4,25 @@ import {formGroup} from '../../helpers/form-group';
 
 function retrieveForm(email, emailErrors, password, passwordErrors) {
   return form('#register-form', { 'onsubmit': e => e.preventDefault() }, [
-    h3('.text-center', 'Register'),
-    formGroup('inputLoginEmail', 'Email', 'email', email, emailErrors),
-    formGroup('inputLoginPassword', 'Password', 'password', password, passwordErrors),
-    button('#loginBtn', {className: 'btn btn-default', type: 'submit'}, 'Login')
+    h3('.text-center .alert .alert-info', 'Login'),
+
+    formGroup({
+      id: 'inputLoginEmail',
+      labelText: 'Email*',
+      placeholderText: 'example@gmail.com',
+      inputType: 'email',
+      inputValue: email,
+      validationErrors: emailErrors
+    }),
+    formGroup({
+      id: 'inputLoginPassword',
+      labelText: 'Password*',
+      placeholderText: 'Password',
+      inputType: 'password',
+      inputValue: password,
+      validationErrors: passwordErrors
+    }),
+    div('.text-right', [button('#loginBtn', {className: 'btn btn-primary btn-block', type: 'submit'}, 'Login')])
   ]);
 }
 
