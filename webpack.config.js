@@ -8,7 +8,7 @@ module.exports = {
     app: [
       'webpack-dev-server/client?http://0.0.0.0:3000',
       'webpack/hot/dev-server',
-      './src/app'
+      './code/app'
     ]
   },
 
@@ -20,12 +20,12 @@ module.exports = {
 
   resolve: {
     extensions: ['', '.js', '.jsx'],
-    modulesDirectories: ['src', 'node_modules']
+    modulesDirectories: ['code', 'node_modules']
   },
 
   module: {
     loaders: [
-      { test: /\.js?$/, loaders: ['babel'], include: path.join(__dirname, 'src'), exclude: /node_modules/ }
+      { test: /\.js?$/, loaders: ['babel'], include: path.join(__dirname, 'code'), exclude: /node_modules/ }
     ]
   },
 
